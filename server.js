@@ -6,22 +6,23 @@ const app = express();
 app.use(express.json())
 app.use(cors());
 
-const Team = require("./models/teamSchema.js")
+const Team = require("./models/TeamSchema.js")
 
-// <-------- ROUTES -------->
-// <-------- HOME -------->
+//==========================================================================
+
+// <---- HOME ---->
 app.get('/', (req, res)=>{
 	res.send("yanks-22");
 });
 
-// <-------- CREATE -------->
+// CREATE
 app.post('/teams', (req, res)=>{
     Todos.create(req.body, (err, createdTeam)=>{
         res.json(createdTeam); //.json() will send proper headers in response so client knows it's json coming back
     });
 });
 
-// <-------- INDEX -------->
+// INDEX
 app.get("/teams", (req, res)=>{
 	Team.find({}, (err, teamsData)=>{
 		res.json(teamsData)
@@ -49,7 +50,7 @@ app.put('/teams/:id', (req, res)=>{
     });
 });
 
-// ===============================================================================
+//===============================================================================
 
 app.listen(2727, ()=> {
 	console.log("listening on port 2727...")

@@ -5,11 +5,10 @@ const TeamSchema = new Schema({
     city: String,
     moniker: String,
     logo: String,
-    estab: Number,
     division: String,
     league: String,
-    activeRoster: [PlayerSchema],
-    fortyManRoster: [PlayerSchema],
+    activeRoster: [],
+    fortyManRoster: [],
 })
 
 const Team = mongoose.model('Team', TeamSchema)
